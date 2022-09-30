@@ -20,8 +20,8 @@ pipeline{
     }
         stage('Run Stage'){
             steps{
-                sh ''''#!/bin/bash 
-                ssh ubuntu@13.42.51.83 <<EOF || sudo docker run -d -p 80:5500 --name node-app ttsvetkoff/node EOF'''
+                sh '''#!/bin/bash 
+                ssh ubuntu@13.42.51.83 <<EOF || sudo docker run -d -p 80:5000 --name node-app ttsvetkoff/node EOF'''
             }
     }
         stage('Test Stage'){
