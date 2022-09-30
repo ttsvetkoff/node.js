@@ -1,5 +1,12 @@
-FROM node:latest
-WORKDIR /opt/FE
+FROM node:12.18.1
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+COPY ["package.json", "package-lock.json*", "./"]
+
+RUN npm install --production
+
 COPY . .
-RUN npm install ~/node.js/package.json
-ENTRYPOINT [ "node", "index.js" ]
+
+CMD [ "node", "index.js" ]
