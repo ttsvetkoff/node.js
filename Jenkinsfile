@@ -1,11 +1,10 @@
 pipeline{
     agent any
     stages{
-        stage('Connect Stage'){
+        stage('Test Stage'){
             steps{
-                sh 'ssh ubuntu@13.42.51.83'
-               
-
+                sh 'chmod +x ./clone.sh'
+                sh './clone.sh'
             }
     }
         stage('Build Stage'){
