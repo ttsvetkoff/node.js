@@ -3,4 +3,4 @@ ENV NODE_ENV=production
 WORKDIR /app
 COPY . .
 RUN npm install --production
-CMD [ "node", "index.js" ]
+ENTRYPOINT [ "/usr/local/bin/node", "index.js" ]
