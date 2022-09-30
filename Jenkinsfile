@@ -4,8 +4,8 @@ pipeline{
     stages{
         stage('Connect Stage'){
             steps{
-                sh 'ssh ubuntu@13.42.51.83 <<EOF'
-                 'EOF'
+                sh 'ssh ubuntu@13.42.51.83'
+               
 
             }
     }
@@ -15,10 +15,9 @@ pipeline{
                 //sh 'sudo docker rm node-app'
                 //sh 'sudo docker rmi -f node'
                 
-                sh 'ssh ubuntu@13.42.51.83 <<EOF'
-               
-                sh 'sudo docker build -t ttsvetkoff/node ./ -f ./Dockerfile'
-                'EOF'
+                sh '''#!/bin/bash
+                ssh ubuntu@13.42.51.83 <<EOF sudo docker build -t ttsvetkoff/node ./ -f ./Dockerfile EOF'''
+                
             }
     }
         stage('Run Stage'){
