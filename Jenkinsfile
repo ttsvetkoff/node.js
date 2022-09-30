@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('Test Stage'){
+        stage('Clone Stage'){
             steps{
                 sh 'chmod +x ./clone.sh'
                 sh './clone.sh'
