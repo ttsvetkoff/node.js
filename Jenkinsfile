@@ -14,15 +14,14 @@ pipeline{
                 //sh 'sudo docker rm node-app'
                 //sh 'sudo docker rmi -f node'
                 sh '''#!/bin/bash
-                ssh ubuntu@13.42.51.83 <<EOF sudo docker build -t ttsvetkoff/node ./ -f ./Dockerfile EOF'''
+                ssh ubuntu@13.42.51.83 <<EOF || sudo docker build -t ttsvetkoff/node ./ -f ./Dockerfile EOF'''
                 
             }
     }
         stage('Run Stage'){
             steps{
                 sh ''''#!/bin/bash 
-                ssh ubuntu@13.42.51.83 <<EOF 
-                sudo docker run -d -p 80:5500 --name node-app ttsvetkoff/node
+                ssh ubuntu@13.42.51.83 <<EOF || sudo docker run -d -p 80:5500 --name node-app ttsvetkoff/node
                 EOF'''
             }
     }
