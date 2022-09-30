@@ -1,6 +1,5 @@
-FROM node:12.18.1
-ENV NODE_ENV=production
-WORKDIR /app
+FROM node:10
+WORKDIR /opt/api
 COPY . .
-RUN npm install --production
-ENTRYPOINT [ "/usr/local/bin/node", "index.js" ]
+RUN npm install
+ENTRYPOINT [ "/usr/local/bin/node", "app.js" ]
